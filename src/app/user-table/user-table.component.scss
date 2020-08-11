@@ -4,10 +4,10 @@ header {
   overflow: auto;
   position: sticky;
   top:0;
-  padding: 15px;
+  padding: 14px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50px;
+  // margin-bottom: 0px;
 }
 
 mat-icon {
@@ -17,39 +17,40 @@ mat-icon {
 .action-container {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px;
 }
 
 .table {
-  padding: 20px;
+  padding: 10px;
+  margin: 0;
 }
 
 .table tbody tr td,
 .table thead th,
 .table thead {
-  border-left: 1px solid #dee2e6;
-  border-right: 1px solid #dee2e6;
+  border-left: 1 solid #0a0a0a;
+  border-right: 1  solid #0a0a0a;
 }
 
-.output {
-  padding: 20px;
-}
+// .output {
+//   padding: 10px;
+// }
 
 .delete {
-  color: red  ;
+  color: rgb(236, 76, 76)  ;
 }
 
 .done {
-  color: green;
+  color: rgb(20, 219, 20);
 }
 
 .edit {
-  color: yellow;
+  color: rgb(2, 41, 32);
 }
 span.ui-column-resizer {
   width: 100%;
   height: 100%;
   cursor: col-resize;
-  padding: 30px;
+  padding: 10px;
 
 }

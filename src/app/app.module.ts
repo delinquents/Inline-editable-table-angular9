@@ -7,13 +7,14 @@ import { UserTableComponent } from './user-table/user-table.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { DragableColumnDirective } from './Dragable-column-directive/dragable-column.directive';
-
+import { HttpClientModule } from '@angular/common/http';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,9 @@ import { DragableColumnDirective } from './Dragable-column-directive/dragable-co
     MatNativeDateModule,
     MatButtonModule,
     MatIconModule,
-    MatSelectModule
-
+    MatSelectModule,
+    HttpClientModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

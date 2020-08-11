@@ -1,5 +1,19 @@
+import { CityService } from './../../shared/city.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+
+export interface City {
+  city_id: number;
+  city: string;
+  country: Country;
+  last_update: Date;
+}
+export interface Country {
+  country_id: number;
+  country: string;
+  last_update?: Date;
+}
+
 
 @Component({
   selector: 'app-user-table',
@@ -8,31 +22,61 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 })
 export class UserTableComponent implements OnInit {
 
+  cities: City[] = [];
+  countries: any;
+
   userTable: FormGroup;
   control: FormArray;
   mode: boolean;
   touchedRows: any;
-  constructor(private fb: FormBuilder) { }
+
+
+  keyword = 'country';
+
+  constructor(private fb: FormBuilder, private cityService: CityService) {
+
+
+  }
 
   ngOnInit(): void {
+
+    this.cityService.getCities().subscribe(
+      (data: City[]) => {
+        this.cities = data;
+        // console.log('test', this.cities);
+        this.initAllRows();
+        if (this.cities.length === 0 ) {
+          this.addRow();
+        }
+      }
+    );
+    this.cityService.getCountries().subscribe(
+      (data: any) => {
+        this.countries = data;
+        console.log('countries', data);
+      }
+    );
+
+
     this.touchedRows = [];
     this.userTable = this.fb.group({
       tableRows: this.fb.array([])
     });
-    this.addRow();
+
+
   }
 
   ngAfterOnInit() {
     this.control = this.userTable.get('tableRows') as FormArray;
   }
 
-  initiateForm(): FormGroup {
+  initiateForm(city?: City): FormGroup {
     return this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.email, Validators.required]],
-      dob: ['', [Validators.required]],
-      bloodGroup: [''],
-      mobNumber: ['', [Validators.required, Validators.maxLength(10)]],
+      city_id: [city ? city.city_id : '', Validators.required],
+      city: [city ? city.city : '', [Validators.email, Validators.required]],
+      country_id: [city ? city.country.country : '', [Validators.required]],
+      last_update: [city ? city.last_update : ''],
+      // mobNumber: ['', [Validators.required, Validators.maxLength(10)]],
       isEditable: [true]
     });
   }
@@ -40,6 +84,14 @@ export class UserTableComponent implements OnInit {
   addRow() {
     const control =  this.userTable.get('tableRows') as FormArray;
     control.push(this.initiateForm());
+  }
+
+  initAllRows() {
+    this.cities.forEach(city => {
+      const control =  this.userTable.get('tableRows') as FormArray;
+      // control.push(this.initiateForm());
+      control.push(this.initiateForm(city));
+    });
   }
 
   deleteRow(index: number) {
@@ -73,4 +125,6 @@ export class UserTableComponent implements OnInit {
   toggleTheme() {
     this.mode = !this.mode;
   }
+
+  selectEvent(event) {}
 }
