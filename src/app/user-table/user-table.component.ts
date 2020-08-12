@@ -30,7 +30,7 @@ export class UserTableComponent implements OnInit {
   mode: boolean;
   touchedRows: any;
 
-
+  isLoading: boolean = false;
   keyword = 'country';
 
   constructor(private fb: FormBuilder, private cityService: CityService) {
@@ -44,7 +44,7 @@ export class UserTableComponent implements OnInit {
       (data: City[]) => {
         this.cities = data;
         // console.log('test', this.cities);
-        this.initAllRows();
+        this.initlAllRows();
         if (this.cities.length === 0 ) {
           this.addRow();
         }
@@ -53,7 +53,6 @@ export class UserTableComponent implements OnInit {
     this.cityService.getCountries().subscribe(
       (data: any) => {
         this.countries = data;
-        console.log('countries', data);
       }
     );
 
@@ -73,10 +72,9 @@ export class UserTableComponent implements OnInit {
   initiateForm(city?: City): FormGroup {
     return this.fb.group({
       city_id: [city ? city.city_id : '', Validators.required],
-      city: [city ? city.city : '', [Validators.email, Validators.required]],
-      country_id: [city ? city.country.country : '', [Validators.required]],
+      city: [city ? city.city : '', [ Validators.required]],
+      country: [city ? city.country.country : '', [Validators.required]],
       last_update: [city ? city.last_update : ''],
-      // mobNumber: ['', [Validators.required, Validators.maxLength(10)]],
       isEditable: [true]
     });
   }
@@ -86,10 +84,9 @@ export class UserTableComponent implements OnInit {
     control.push(this.initiateForm());
   }
 
-  initAllRows() {
+  initlAllRows() {
     this.cities.forEach(city => {
       const control =  this.userTable.get('tableRows') as FormArray;
-      // control.push(this.initiateForm());
       control.push(this.initiateForm(city));
     });
   }
@@ -104,6 +101,7 @@ export class UserTableComponent implements OnInit {
   }
 
   doneRow(group: FormGroup) {
+    console.log(group)
     group.get('isEditable').setValue(false);
   }
 
@@ -119,12 +117,20 @@ export class UserTableComponent implements OnInit {
   submitForm() {
     const control = this.userTable.get('tableRows') as FormArray;
     this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
-    console.log(this.touchedRows);
+    console.log(this.cities);
   }
 
   toggleTheme() {
     this.mode = !this.mode;
   }
 
-  selectEvent(event) {}
+  selectEvent(item) {
+    const control =  this.userTable.get('tableRows') as FormArray;
+    console.log(control);
+    // console.log(item);
+    // console.log(this.userTable.get('tableRows').value);
+    // this.addRow();
+  }
+
+
 }

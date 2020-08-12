@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DragableColumnDirective } from './Dragable-column-directive/dragable-column.directive';
 import { HttpClientModule } from '@angular/common/http';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     MatIconModule,
     MatSelectModule,
     HttpClientModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

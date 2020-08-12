@@ -1,40 +1,76 @@
-header {
-  background-color: #333;
-  color: #fff;
-  overflow: auto;
-  position: sticky;
-  top:0;
-  padding: 14px;
-  display: flex;
-  justify-content: space-between;
-  // margin-bottom: 0px;
+
+.text-nowrap {
+  background-color: rgb(185, 100, 255);
+  color: white;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 1px 0px rgb(185, 100, 255);
+}
+.add {
+  background-color: rgb(236, 101, 101);
+  color: white;
+  margin: 10px;
+}
+.submit {
+  background-color: rgb(108, 245, 149);
+  color: white;
+  margin: 10px;
 }
 
 mat-icon {
   cursor: pointer;
 }
 
-.action-container {
+
+.card-header {
+  // margin: ;
   display: flex;
-  justify-content: space-between;
-  padding: 10px;
+  position: relative;
+  height: 4rem;
+
+  // background-color: rgb(230, 158, 252);
+  margin: 10px;
+  // width: 1300px;
+  .title {
+    flex: 1;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+  }
+
+  .action-container {
+    flex: 2;
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+
+  }
+
+
 }
+
+
+
 
 .table {
   padding: 10px;
   margin: 0;
+  border-radius: 15px;
+  border-bottom: 1px solid black;
 }
 
 .table tbody tr td,
 .table thead th,
 .table thead {
-  border-left: 1 solid #0a0a0a;
-  border-right: 1  solid #0a0a0a;
+  border-left: 1 solid #3d3b3b;
+  border-right: 1  solid #3d3b3b;
 }
 
-// .output {
-//   padding: 10px;
-// }
+
+tbody {
+  background: white;
+}
+
 
 .delete {
   color: rgb(236, 76, 76)  ;
@@ -52,5 +88,41 @@ span.ui-column-resizer {
   height: 100%;
   cursor: col-resize;
   padding: 10px;
+}
 
+.container {
+  height: 100%;
+  width: 100%;
+  background:white;
+  padding: 50px;
+  @media(min-width: 1140px){
+    max-width: 1920px;
+  }
+}
+
+.table thead th {
+  &:nth-child(1) {
+    border-top-left-radius: 25px;
+  }
+  &:last-child {
+    border-top-right-radius: 25px;
+  }
+}
+
+tr:nth-child(even) {
+  background: white;
+  border-left: 1px solid rgb(106, 240, 101);
+  border-right: 1px solid rgb(106, 240, 101);
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 5px 0px rgb(106, 240, 101);
+}
+
+tr:nth-child(odd) {
+  background: #fefaff;
+  border-left: 1px solid rgb(190, 132, 255);
+  border-right: 1px solid rgb(190, 132, 255);
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 5px 0px rgb(190, 132, 255);
 }

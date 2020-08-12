@@ -10,7 +10,7 @@ export class CityService {
 
 constructor(private http: HttpClient) { }
 
-baseUrl = 'http://192.168.67.245:3000/city?select=city_id,city,last_update,country(country_id,country)&limit=10&offset=3';
+baseUrl = 'http://192.168.67.245:3000/city?select=city_id,city,last_update,country(country_id,country)&limit=5&offset=3';
 countryUrl = 'http://192.168.67.245:3000/country';
 
   getCities() {

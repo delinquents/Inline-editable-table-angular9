@@ -1,13 +1,19 @@
-  <header>
-    <div>
-      <h1>Inline Editable Table</h1>
+
+
+
+<div class="container">
+
+
+<form [formGroup]="userTable">
+
+  <mat-card class="card-header">
+    <h3 class="title">Country</h3>
+    <div class="action-container">
+      <button mat-raised-button type="submit" (click)="addRow()" class="add"><mat-icon>add</mat-icon></button>
+      <button mat-raised-button [disabled]="userTable.invalid" type="submit" class="submit" (click)="submitForm()"><mat-icon>done</mat-icon></button>
     </div>
-    <mat-icon (click)="toggleTheme()" title="Change theme">format_color_fill</mat-icon>
-  </header>
-
-
-  <form [formGroup]="userTable">
-      <table  class="table table-border" [ngClass]="{'table-dark': mode}" >
+  </mat-card>
+      <table  class="table" [ngClass]="{'table-dark': mode}" >
         <thead class="text-nowrap" >
           <th>City_id <span class="ui-column-resizer" dragableColumn> </span></th>
           <th>City<span class="ui-column-resizer" dragableColumn> </span></th>
@@ -35,17 +41,6 @@
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </td>
-              <!-- <td>
-                <mat-form-field>
-                  <mat-select formControlName="bloodGroup">
-                    <mat-option value="O+">O</mat-option>
-                    <mat-option value="A">A</mat-option>
-                    <mat-option value="B">B</mat-option>
-                    <mat-option value="AB">AB</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </td> -->
-
 
               <td>
                 <div class="ng-autocomplete">
@@ -53,13 +48,14 @@
                     [data]="countries"
                     [searchKeyword]="keyword"
                     (selected)='selectEvent($event)'
-
+                    formControlName="country"
                     [itemTemplate]="itemTemplate"
+                    [isLoading]="isLoading"
                    >
                   </ng-autocomplete>
 
                   <ng-template #itemTemplate let-item>
-                  <a [innerHTML]="item.country"></a>
+                      <a [innerHTML]="item.country"></a>
                   </ng-template>
 
                   <!-- <ng-template #notFoundTemplate let-notFound>
@@ -73,8 +69,13 @@
 
 
               <td>
-                <mat-icon class="delete" (click)="deleteRow(i)">delete_forever</mat-icon>
-                <mat-icon class="done" (click)="doneRow(group)">done</mat-icon>
+                <div>
+                  <mat-icon class="delete" (click)="deleteRow(i)">delete_forever</mat-icon>
+                </div>
+                <!-- <div>
+                  <mat-icon class="done" (click)="doneRow(group)">done</mat-icon>
+                </div> -->
+
               </td>
             </tr>
             <tr *ngIf="!group.get('isEditable').value" >
@@ -82,31 +83,25 @@
                 {{group.get('city_id').value}}
               </td>
               <td>
-                {{group.get('country').value}}
-              </td>
-              <td>
-                  {{group.get('country_id').value}}
+                {{group.get('city').value}}
               </td>
               <td>
                   {{group.get('last_update').value}}
               </td>
-              <!-- <td>
-                {{group.get('mobNumber').value}}
-              </td> -->
               <td>
-                <mat-icon class="edit" (click)="editRow(group)">edit</mat-icon>
+                  {{group.get('country').value}}
+              </td>
+              <td>
+                <button mat-raised-button  class="edit" (click)="editRow(group)">edit</button>
               </td>
             </tr>
           </ng-container>
         </tbody>
       </table>
-      <div class="action-container">
-        <button mat-raised-button type="submit" (click)="addRow()">Add row</button>
-        <button mat-raised-button [disabled]="userTable.invalid" type="submit" (click)="submitForm()">Submit</button>
-      </div>
+
     </form>
-    <!-- <div class="output">
-      <p>Form Data:  {{userTable.value | json}}</p>
-        <p>Is Valid: {{userTable.valid}}</p>
-    </div> -->
+
+
+
+</div>
 
