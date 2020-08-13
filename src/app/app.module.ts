@@ -17,13 +17,15 @@ import { HttpClientModule } from '@angular/common/http';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import {MatCardModule} from '@angular/material/card';
 import { LayoutGridComponent } from './layout-grid/layout-grid.component';
+import { PaginationComponent } from './shared/pagination/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserTableComponent,
     DragableColumnDirective,
-    LayoutGridComponent
+    LayoutGridComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

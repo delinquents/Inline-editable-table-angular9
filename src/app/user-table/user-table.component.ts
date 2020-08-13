@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { CityService } from './../../shared/city.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms'; 
+import { rowTableAnimationFull } from '../shared/animation/template.animation';
 export interface City {
   city_id: number;
   city: string;
@@ -19,10 +19,11 @@ export interface Country {
 @Component({
   selector: 'app-user-table',
   templateUrl: './user-table.component.html',
-  styleUrls: ['./user-table.component.scss']
+  styleUrls: ['./user-table.component.scss'],
+  animations: [rowTableAnimationFull]
 })
 export class UserTableComponent implements OnInit {
-
+  animation = true;
   cities: City[] = [];
   countries: any;
   data: any;
@@ -33,7 +34,8 @@ export class UserTableComponent implements OnInit {
 
   isLoading: boolean = false;
   keyword = 'country';
-
+ 
+ 
   constructor(private fb: FormBuilder, private cityService: CityService, private http: HttpClient) {
 
 
@@ -150,5 +152,6 @@ export class UserTableComponent implements OnInit {
     // fetch remote data from here
     // And reassign the 'data' which is binded to 'data' property.
   }
+  
 
 }
