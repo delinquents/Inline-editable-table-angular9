@@ -1,10 +1,7 @@
 
 .text-nowrap {
-  background-color: rgb(185, 100, 255);
-  color: white;
-  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 1px 1px 1px 0px rgb(185, 100, 255);
+  background-color: #f3f7f9;
+  color: #6c757d;
 }
 .add {
   background-color: rgb(236, 101, 101);
@@ -27,7 +24,6 @@ mat-icon {
   display: flex;
   position: relative;
   height: 4rem;
-
   // background-color: rgb(230, 158, 252);
   margin: 10px;
   // width: 1300px;
@@ -39,10 +35,10 @@ mat-icon {
   }
 
   .action-container {
-    flex: 2;
-    position: absolute;
-    top: 0;
-    right: 0.5rem;
+    // flex: 2;
+    // position: absolute;
+    // top: 0;
+    // right: 0.5rem;
 
   }
 
@@ -50,20 +46,26 @@ mat-icon {
 }
 
 
-
+form {
+  background: white;
+  padding: 50px 50px 30px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0.85rem 8rem rgba(56,65,74,.03);
+}
 
 .table {
   padding: 10px;
   margin: 0;
-  border-radius: 15px;
-  border-bottom: 1px solid black;
+  
+  // border-radius: 15px;
+  // border-bottom: 1px solid black;
 }
 
 .table tbody tr td,
 .table thead th,
 .table thead {
-  border-left: 1 solid #3d3b3b;
-  border-right: 1  solid #3d3b3b;
+  // border-left: 1 solid #3d3b3b;
+  // border-right: 1  solid #3d3b3b;
 }
 
 
@@ -93,36 +95,11 @@ span.ui-column-resizer {
 .container {
   height: 100%;
   width: 100%;
-  background:white;
+  background: #f5f6f8;
   padding: 50px;
   @media(min-width: 1140px){
     max-width: 1920px;
   }
 }
 
-.table thead th {
-  &:nth-child(1) {
-    border-top-left-radius: 25px;
-  }
-  &:last-child {
-    border-top-right-radius: 25px;
-  }
-}
-
-tr:nth-child(even) {
-  background: white;
-  border-left: 1px solid rgb(106, 240, 101);
-  border-right: 1px solid rgb(106, 240, 101);
-  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 4px 4px 5px 0px rgb(106, 240, 101);
-}
-
-tr:nth-child(odd) {
-  background: #fefaff;
-  border-left: 1px solid rgb(190, 132, 255);
-  border-right: 1px solid rgb(190, 132, 255);
-  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 4px 4px 5px 0px rgb(190, 132, 255);
-}
+ 

@@ -6,20 +6,19 @@
 
 <form [formGroup]="userTable">
 
-  <mat-card class="card-header">
-    <h3 class="title">Country</h3>
-    <div class="action-container">
+  <div class="flex flex-align-center flex-justify-space-between">
+    <h3 class="title flex justify-content-center" >Country</h3>
+    <div class="action-container flex-align-center ">
       <button mat-raised-button type="submit" (click)="addRow()" class="add"><mat-icon>add</mat-icon></button>
       <button mat-raised-button [disabled]="userTable.invalid" type="submit" class="submit" (click)="submitForm()"><mat-icon>done</mat-icon></button>
     </div>
-  </mat-card>
+  </div>
       <table  class="table" [ngClass]="{'table-dark': mode}" >
         <thead class="text-nowrap" >
           <th>City_id <span class="ui-column-resizer" dragableColumn> </span></th>
           <th>City<span class="ui-column-resizer" dragableColumn> </span></th>
           <th>Last update<span class="ui-column-resizer" dragableColumn> </span></th>
-          <th>Country<span class="ui-column-resizer" dragableColumn> </span></th>
-          <th></th>
+          <th>Country<span class="ui-column-resizer" dragableColumn> </span></th> 
         </thead>
         <tbody>
           <ng-container formArrayName="tableRows" *ngFor="let group of getFormControls.controls ; let i=index">
