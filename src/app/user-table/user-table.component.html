@@ -1,165 +1,111 @@
+
+
+
 <div class="container">
 
 
-<form [formGroup]="userTable">
-
-  <div class="flex flex-align-center flex-justify-space-between">
-    <h3 class="title flex justify-content-center" >Country</h3>
-    <div class="action-container flex-align-center ">
-      <button mat-raised-button type="submit" (click)="addRow()" class="add"><mat-icon>add</mat-icon></button>
-      <button mat-raised-button [disabled]="userTable.invalid" type="submit" class="submit" (click)="submitForm()"><mat-icon>done</mat-icon></button>
-    </div>
-  </div>
-      <table  class="table" [ngClass]="{'table-dark': mode}" >
-        <thead class="text-nowrap" >
-          <th>City_id <span class="ui-column-resizer" dragableColumn> </span></th>
-          <th>City<span class="ui-column-resizer" dragableColumn> </span></th>
-          <th>Last update<span class="ui-column-resizer" dragableColumn> </span></th>
-          <th>Country<span class="ui-column-resizer" dragableColumn> </span></th>
-        </thead>
-        <tbody>
-          <ng-container formArrayName="tableRows" *ngFor="let group of getFormControls.controls ; let i=index">
-            <tr *ngIf="group.get('isEditable').value" [formGroupName]="i">
-              <td>
-                <mat-form-field>
-                  <input matInput type="number" formControlName="city_id">
-                </mat-form-field>
-              </td>
-              <td>
-                <mat-form-field>
-                  <input matInput type="text" formControlName="city">
-                </mat-form-field>
-              </td>
-              <td>
-                <mat-form-field>
-                  <input matInput matInput [matDatepicker]="picker" formControlName="last_update">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-              </td>
-
-              <td>
-                <div class="ng-autocomplete">
-                  <ng-autocomplete
-                    [data]="data"
-                    [searchKeyword]="keyword"
-                    (selected)='selectEvent($event)'
-                    formControlName="country"
-                    [itemTemplate]="itemTemplate"
-                    [isLoading]="isLoading"
-                    (inputChanged)='getServerResponse($event)'
-                    (inputChanged)='onChangeSearch($event)'
-                    [debounceTime]="300"
-                    [minQueryLength]="2"
-                    [notFoundTemplate]="notFoundTemplate"
-                   >
-                  </ng-autocomplete>
-
+  <form [formGroup]="userTable">
+  
     <div class="fx fx-align-center fx-justify-space-between">
-      <h3 class="title fx justify-content-center">Country</h3>
-      <div class="action-container fx-align-center ">
-        <button mat-raised-button type="submit" (click)="addRow()" class="add">
-          <mat-icon>add</mat-icon>
-        </button>
-        <button mat-raised-button [disabled]="userTable.invalid" type="submit" class="submit" (click)="submitForm()">
-          <mat-icon>done</mat-icon>
-        </button>
-
-<<<<<<< HEAD
+      <h3 class="title flex justify-content-center" >Country</h3>
+      <div class="action-container flex-align-center ">
+        <button mat-raised-button type="submit" (click)="addRow()" class="add"><mat-icon>add</mat-icon></button>
+        <button mat-raised-button [disabled]="userTable.invalid" type="submit" class="submit" (click)="submitForm()"><mat-icon>done</mat-icon></button>
         <button [routerLink]="['/layout']" routerLinkActive="router-link-active"  mat-raised-button>
           Layout
         </button>
       </div>
     </div>
-    <table class="table" [ngClass]="{'table-dark': mode}">
-      <thead class="text-nowrap">
-        <th>City_id <span class="ui-column-resizer" dragableColumn> </span></th>
-        <th>City<span class="ui-column-resizer" dragableColumn> </span></th>
-        <th>Last update<span class="ui-column-resizer" dragableColumn> </span></th>
-        <th>Country<span class="ui-column-resizer" dragableColumn> </span></th>
-      </thead>
-      <tbody>
-        <ng-container formArrayName="tableRows" *ngFor="let group of getFormControls.controls ; let i=index">
-          <tr *ngIf="group.get('isEditable').value" [formGroupName]="i">
-            <td>
-              <mat-form-field>
-                <input matInput type="number" formControlName="city_id">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field>
-                <input matInput type="text" formControlName="city">
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field>
-                <input matInput matInput [matDatepicker]="picker" formControlName="last_update">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-            </td>
-
-            <td>
-              <div class="ng-autocomplete">
-                <ng-autocomplete [data]="countries" [searchKeyword]="keyword" (selected)='selectEvent($event)'
-                  formControlName="country" [itemTemplate]="itemTemplate" [isLoading]="isLoading">
-                </ng-autocomplete>
-
-                <ng-template #itemTemplate let-item>
-                  <a [innerHTML]="item.country"></a>
-                </ng-template>
-
-                <!-- <ng-template #notFoundTemplate let-notFound>
-                  <div [innerHTML]="notFound"></div>
-                  </ng-template> -->
-              </div>
-              <!-- <mat-form-field>
-                  <input matInput type="text" formControlName="country_id">
-                </mat-form-field> -->
-            </td>
-=======
-                  <ng-template #notFoundTemplate let-notFound>
-                     <div [innerHTML]="notFound"></div>
-                  </ng-template>
+        <table  class="table" [ngClass]="{'table-dark': mode}" >
+          <thead class="text-nowrap" >
+            <th>City_id <span class="ui-column-resizer" dragableColumn> </span></th>
+            <th>City<span class="ui-column-resizer" dragableColumn> </span></th>
+            <th>Last update<span class="ui-column-resizer" dragableColumn> </span></th>
+            <th>Country<span class="ui-column-resizer" dragableColumn> </span></th> 
+          </thead>
+          <tbody>
+            <ng-container formArrayName="tableRows" *ngFor="let group of getFormControls.controls ; let i=index">
+              <tr *ngIf="group.get('isEditable').value" [formGroupName]="i">
+                <td>
+                  <mat-form-field>
+                    <input matInput type="number" formControlName="city_id">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field>
+                    <input matInput type="text" formControlName="city">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field>
+                    <input matInput matInput [matDatepicker]="picker" formControlName="last_update">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </td>
+  
+                <td>
+                  <div class="ng-autocomplete">
+                    <ng-autocomplete
+                      [data]="data"
+                      [searchKeyword]="keyword"
+                      (selected)='selectEvent($event)'
+                      formControlName="country"
+                      [itemTemplate]="itemTemplate"
+                      [isLoading]="isLoading"
+                      (inputChanged)='getServerResponse($event)'
+                      (inputChanged)='onChangeSearch($event)'
+                      [debounceTime]="300"
+                      [minQueryLength]="2"
+                      [notFoundTemplate]="notFoundTemplate"
+                     >
+                    </ng-autocomplete>
+  
+                    <ng-template #itemTemplate let-item>
+                        <a [innerHTML]="item.country"></a>
+                    </ng-template>
+  
+                    <ng-template #notFoundTemplate let-notFound>
+                       <div [innerHTML]="notFound"></div>
+                    </ng-template>
+                    </div>
+                </td>
+  
+  
+                <td>
+                  <div>
+                    <mat-icon class="delete" (click)="deleteRow(i)">delete_forever</mat-icon>
                   </div>
-
-              </td>
->>>>>>> 2701adea696cda4fe49827db47c53939f77d0025
-
-
-            <td>
-              <div>
-                <mat-icon class="delete" (click)="deleteRow(i)">delete_forever</mat-icon>
-              </div>
-              <!-- <div>
-                  <mat-icon class="done" (click)="doneRow(group)">done</mat-icon>
-                </div> -->
-
-            </td>
-          </tr>
-          <tr *ngIf="!group.get('isEditable').value">
-            <td>
-              {{group.get('city_id').value}}
-            </td>
-            <td>
-              {{group.get('city').value}}
-            </td>
-            <td>
-              {{group.get('last_update').value}}
-            </td>
-            <td>
-              {{group.get('country').value}}
-            </td>
-            <td>
-              <button mat-raised-button class="edit" (click)="editRow(group)">edit</button>
-            </td>
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
-
-  </form>
-
-
-
-</div>
+                  <!-- <div>
+                    <mat-icon class="done" (click)="doneRow(group)">done</mat-icon>
+                  </div> -->
+  
+                </td>
+              </tr>
+              <tr *ngIf="!group.get('isEditable').value" >
+                <td>
+                  {{group.get('city_id').value}}
+                </td>
+                <td>
+                  {{group.get('city').value}}
+                </td>
+                <td>
+                    {{group.get('last_update').value}}
+                </td>
+                <td>
+                    {{group.get('country').value}}
+                </td>
+                <td>
+                  <button mat-raised-button  class="edit" (click)="editRow(group)">edit</button>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+  
+      </form>
+  
+  
+  
+  </div>
+  
