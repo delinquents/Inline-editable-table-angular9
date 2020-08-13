@@ -8,7 +8,7 @@
   
   .row {
     margin: 0 -15px;
-    display: flex;
+    display: fx;
     flex-wrap: wrap;
   }
   
@@ -17,33 +17,112 @@
     max-width: 100%;
   }
   
-  //flexbox layout
+  //fxbox layout
 
-  .flex {
+  .fx {
     display: flex;
   }
 
-  .flex-column {
+  .fx-column {
     flex-direction: column;
   }
 
-  .flex-align-center {
+  .fx-align-center {
     align-items: center;
   }
   
-  .flex-align-left {
+  .fx-align-left {
     align-items: left;
   }
 
-  .flex-align-right {
+  .fx-align-right {
     align-items: right;
   }
 
-  .flex-justify-center {
+  .fx-justify-center {
     justify-content: center;
   }
 
-  .flex-justify-space-between {
+  .fx-justify-space-between {
     justify-content: space-between;
   }
+
+  .fx-justify-space-around {
+    justify-content: space-around;
+  }
+
+  .fx-justify-fx-start {
+    justify-content: fx-start;
+  }
+
+  .fx-justify-fx-end {
+    justify-content: fx-end;
+  }
+
+  .fx-wrap {
+    flex-wrap: wrap;
+  }
+
+  .fx-align-content-center { 
+    align-content: center;
+  }
+
+  .fx-align-content-fx-start { 
+    align-content: fx-start;
+  }
+
+  .fx-align-content-fx-end { 
+    align-content: fx-end;
+  }
+
+  //energosoftStrap column
+
+    .column-12 {
+      width: 100%;
+    }
+
+    .column-11 {
+      width: 91.666%;
+    }
+
+    .column-10 {
+      width: 83.333%;
+    }
+
+    .column-9 {
+      width: 75.5%;
+    }
+
+    .column-8 {
+      width: 66.666%;
+    }
+
+    .column-7 {
+      width: 58.333%;
+    }
+
+    .column-6 {
+      width: 50%;
+    }
+
+    .column-5 {
+      width: 41.666%;
+    }
+
+    .column-4 {
+      width: 33.333%;
+    }
+
+    .column-3 {
+      width: 25%;
+    }
+
+    .column-2 {
+      width: 16.666%;
+    }
+
+    .column-1 {
+      width: 8.333%;
+    }
+
 

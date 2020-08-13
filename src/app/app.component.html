@@ -1,1 +1,2 @@
-<app-user-table></app-user-table>
+<app-user-table *ngIf="router.url === '/' || router.url === '/user-table'"></app-user-table>
+<app-layout-grid *ngIf="router.url === '/layout'"></app-layout-grid>

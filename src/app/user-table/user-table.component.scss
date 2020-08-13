@@ -21,21 +21,21 @@ mat-icon {
 
 .card-header {
   // margin: ;
-  display: flex;
+  display: fx;
   position: relative;
   height: 4rem;
   // background-color: rgb(230, 158, 252);
   margin: 10px;
   // width: 1300px;
   .title {
-    flex: 1;
+    fx: 1;
     font-size: 30px;
     text-align: center;
     color: white;
   }
 
   .action-container {
-    // flex: 2;
+    // fx: 2;
     // position: absolute;
     // top: 0;
     // right: 0.5rem;
@@ -103,3 +103,4 @@ span.ui-column-resizer {
 }
 
  
+

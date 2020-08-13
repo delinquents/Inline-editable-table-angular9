@@ -16,12 +16,14 @@ import { DragableColumnDirective } from './Dragable-column-directive/dragable-co
 import { HttpClientModule } from '@angular/common/http';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import {MatCardModule} from '@angular/material/card';
+import { LayoutGridComponent } from './layout-grid/layout-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserTableComponent,
-    DragableColumnDirective
+    DragableColumnDirective,
+    LayoutGridComponent
   ],
   imports: [
     BrowserModule,
