@@ -21,4 +21,7 @@ countryUrl = 'http://192.168.67.245:3000/country';
     return this.http.get<any>(this.countryUrl);
   }
 
+  getCountriesServerSide(filter) {
+    return this.http.get(`http://192.168.67.245:3000/country?select=country_id,country&or=(country.ilike.*${filter}*)`);
+  }
 }

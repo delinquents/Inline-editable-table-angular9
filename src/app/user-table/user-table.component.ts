@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { CityService } from './../../shared/city.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
@@ -24,7 +25,7 @@ export class UserTableComponent implements OnInit {
 
   cities: City[] = [];
   countries: any;
-
+  data: any;
   userTable: FormGroup;
   control: FormArray;
   mode: boolean;
@@ -33,7 +34,7 @@ export class UserTableComponent implements OnInit {
   isLoading: boolean = false;
   keyword = 'country';
 
-  constructor(private fb: FormBuilder, private cityService: CityService) {
+  constructor(private fb: FormBuilder, private cityService: CityService, private http: HttpClient) {
 
 
   }
@@ -52,7 +53,7 @@ export class UserTableComponent implements OnInit {
     );
     this.cityService.getCountries().subscribe(
       (data: any) => {
-        this.countries = data;
+        this.data = data;
       }
     );
 
@@ -132,5 +133,22 @@ export class UserTableComponent implements OnInit {
     // this.addRow();
   }
 
+
+  getServerResponse(event) {
+  this.cityService.getCountriesServerSide(event)
+        .subscribe(data => {
+          if (data['Search'] == undefined) {
+            this.countries = [];
+            // this.errorMsg = data['Error'];
+          } else {
+            this.countries = data['Search'];
+          }
+        });
+  }
+  onChangeSearch(val: string) {
+    console.log('val', val);
+    // fetch remote data from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
 
 }

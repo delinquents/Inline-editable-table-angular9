@@ -18,7 +18,7 @@
           <th>City_id <span class="ui-column-resizer" dragableColumn> </span></th>
           <th>City<span class="ui-column-resizer" dragableColumn> </span></th>
           <th>Last update<span class="ui-column-resizer" dragableColumn> </span></th>
-          <th>Country<span class="ui-column-resizer" dragableColumn> </span></th> 
+          <th>Country<span class="ui-column-resizer" dragableColumn> </span></th>
         </thead>
         <tbody>
           <ng-container formArrayName="tableRows" *ngFor="let group of getFormControls.controls ; let i=index">
@@ -44,12 +44,17 @@
               <td>
                 <div class="ng-autocomplete">
                   <ng-autocomplete
-                    [data]="countries"
+                    [data]="data"
                     [searchKeyword]="keyword"
                     (selected)='selectEvent($event)'
                     formControlName="country"
                     [itemTemplate]="itemTemplate"
                     [isLoading]="isLoading"
+                    (inputChanged)='getServerResponse($event)'
+                    (inputChanged)='onChangeSearch($event)'
+                    [debounceTime]="300"
+                    [minQueryLength]="2"
+                    [notFoundTemplate]="notFoundTemplate"
                    >
                   </ng-autocomplete>
 
@@ -57,13 +62,11 @@
                       <a [innerHTML]="item.country"></a>
                   </ng-template>
 
-                  <!-- <ng-template #notFoundTemplate let-notFound>
-                  <div [innerHTML]="notFound"></div>
-                  </ng-template> -->
+                  <ng-template #notFoundTemplate let-notFound>
+                     <div [innerHTML]="notFound"></div>
+                  </ng-template>
                   </div>
-                <!-- <mat-form-field>
-                  <input matInput type="text" formControlName="country_id">
-                </mat-form-field> -->
+
               </td>
 
 
