@@ -18,6 +18,7 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import {MatCardModule} from '@angular/material/card';
 import { LayoutGridComponent } from './layout-grid/layout-grid.component';
 import { PaginationComponent } from './shared/pagination/pagination/pagination.component';
+import { MultyDropdownComponent } from './multy-dropdown/multy-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PaginationComponent } from './shared/pagination/pagination/pagination.c
     UserTableComponent,
     DragableColumnDirective,
     LayoutGridComponent,
-    PaginationComponent
+    PaginationComponent,
+    MultyDropdownComponent
   ],
   imports: [
     BrowserModule,
